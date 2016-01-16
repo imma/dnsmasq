@@ -5,10 +5,12 @@ function main {
   source "$shome/script/profile"
 
   if [[ -x "$(type -P dnsmasq)" ]]; then
-    return 1
-  else
-    return 0
+    if [[ -x "$(type -P named)" ]]; then
+      return 1
+    fi
   fi
+  
+  return 0
 }
 
 source sub "$0" "$@"
