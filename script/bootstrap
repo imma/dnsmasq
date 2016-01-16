@@ -5,6 +5,7 @@ function bootstrap {
   source "$shome/script/profile"
 
   pkg ensure net/dnsmasq
+  pkg ensure net/bind net/bind910
 }
 
 bootstrap
