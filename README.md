@@ -1,6 +1,1 @@
-Setup
-=====
-
-For bash, source `script/profile` to expose the `dnsmasq` command.  Requires the
-`defn/app` project installed and sourced.
-
+Visit http://defn.sh/dnsmasq/ or open `docs/index.html`
