@@ -12,7 +12,8 @@ function main {
     default)
       local ip_consul="$(ping -c 1 -t 1 consul | awk '$1 == "PING" { print $3 }' | perl -pe 's{[():]}{}g')" # TODO can dnsmasq use a name
       exec dnsmasq -d -p 5353 --no-hosts --no-resolv --domain-needed --bogus-priv --log-queries --log-facility=- \
-        --server="/consul/${ip_consul}#8600" 
+        --local="/consul/${ip_consul}#8600"  \
+        -r "$shome/etc/resolv.google"
       ;;
     *)
       echo "ERROR: unknown server command: ${1:-/not-supplied/}" 1>&2
