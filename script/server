@@ -13,7 +13,7 @@ function main {
       local ip_consul="$(ping -c 1 -t 1 consul | awk '$1 == "PING" { print $3 }' | perl -pe 's{[():]}{}g')" # TODO can dnsmasq use a name
       exec dnsmasq -d -p 5353 --no-hosts --domain-needed --bogus-priv --log-queries --log-facility=- \
         --local="/consul/${ip_consul}#8600"  \
-        --address="/cache.nih/172.28.128.1" \
+        --address="/nih/172.28.128.1" \
         -r "$shome/etc/resolv.google"
       ;;
     *)
